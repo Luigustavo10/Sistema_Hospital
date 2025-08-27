@@ -30,7 +30,8 @@ public class SecurityConfiguration {
         http.csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login").permitAll() // Permite acesso livre ao endpoint de login
+                        .requestMatchers("/login").permitAll()// Permite acesso livre ao endpoint de login
+                        .requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll() // Permite acesso livre aos endpoints de documentação da API
                         .anyRequest().authenticated()// Exige autenticação para qualquer outra requisição
 
                 );

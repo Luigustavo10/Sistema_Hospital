@@ -6,4 +6,7 @@ public record DadosDetalhamentoConsultas(
         Long idMedico,
         String data
 ) {
+    public DadosDetalhamentoConsultas(Consulta consulta) {
+        this(consulta.getId(), consulta.getPaciente().getId(), consulta.getMedico().getId(), consulta.getData().toString());
+    }
 }
