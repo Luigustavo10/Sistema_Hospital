@@ -9,8 +9,6 @@ import med.voll.api.domain.endereco.DadosEndereco;
 
 public record DadosCadastroMedico(
 
-        Long id,
-
         @NotBlank(message = "Nome é obrigatório")
         String nome,
 
